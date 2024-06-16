@@ -2,7 +2,8 @@ import cors from "cors";
 import "dotenv/config";
 import express, { Application } from "express";
 import { connectDb } from "./config/db.config";
-import myUserRoute from "./routes/user.route"
+import myUserRoute from "./routes/user.route";
+
 // express app
 const app: Application = express();
 
@@ -10,12 +11,12 @@ const app: Application = express();
 app.use(express.json());
 app.use(cors());
 
-app.use('/api/my/users', myUserRoute);
+app.use("/api/my/user", myUserRoute);
 
 // db connection
-connectDb()
+connectDb();
 
-const port =process.env.PORT || 8080
+const port = process.env.PORT || 8080;
 
 // listen app
 app.listen(port, () => {
