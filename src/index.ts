@@ -4,25 +4,21 @@ import express, { Application, Request, Response } from "express";
 import { connectDb } from "./config/db.config";
 import myUserRoute from "./routes/user.route";
 
-// express app
 const app: Application = express();
 
-// middlewares
 app.use(express.json());
 app.use(cors());
 
 app.get("/health", async (req: Request, res: Response) => {
-  res.status(200).json({ message: "Welcome to our server!😊" });
+  res.status(200).json({ message: "Server is running Flawlessly👌" });
 });
 
 app.use("/api/my/user", myUserRoute);
 
-// db connection
 connectDb();
 
 const port = process.env.PORT || 8080;
 
-// listen app
 app.listen(port, () => {
-  console.log(`Server is running on port: ${port}👌`);
+  console.log(`Server is running on port: ${port} 👌`);
 });

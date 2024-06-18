@@ -26,7 +26,7 @@ export const jwtParse = async (
   const { authorization } = req.headers;
 
   if (!authorization || !authorization.startsWith("Bearer ")) {
-    return res.status(401).json({ message: "Unauthorized" });
+    return res.sendStatus(401);
   }
 
   const token = authorization.split(" ")[1];
@@ -37,8 +37,8 @@ export const jwtParse = async (
 
     const user = await User.findOne({ auth0Id });
 
-    if (!user){
-      return res.status(401).json({ message: "Unauthorized" });
+    if (!user) {
+      return res.sendStatus(401);
     }
 
     req.auth0Id = auth0Id as string;
