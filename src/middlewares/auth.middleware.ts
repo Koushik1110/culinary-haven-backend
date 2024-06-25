@@ -45,5 +45,7 @@ export const jwtParse = async (
     req.userId = user._id.toString();
 
     next();
-  } catch (error) {}
+  } catch (error) {
+    res.sendStatus(401);	
+  }
 };
