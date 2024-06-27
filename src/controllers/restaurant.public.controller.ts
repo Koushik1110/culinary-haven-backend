@@ -74,7 +74,7 @@ export const getPublicRestaurant = async (req: Request, res: Response) => {
     const restaurant = await Restaurant.findById(restaurantId);
 
     if (!restaurant) {
-      return res.status(404).json({ messsge: "Restaurant not found" });
+      return res.status(404).json({ message: "Restaurant not found" });
     }
 
     res.status(200).json(restaurant);
