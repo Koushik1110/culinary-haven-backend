@@ -4,7 +4,7 @@ import Restaurant, { MenuItemType } from "../models/restaurant.model";
 import Order from "../models/order.model";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
-const frontend_url = process.env.CLIENT_HOSTNAME as string;
+const frontend_url = process.env.CLIENT_HOST_NAME as string;
 const webhook_secret = process.env.STRIPE_WEBHOOK_SECRET as string;
 
 interface CheckoutSessionRequest {
